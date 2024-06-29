@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Learning Platform Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            background-image: url('C:/Users/TUF/OneDrive/Pictures/blue-sky-background-3.png');
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0 15px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ddd;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        #sideMenu {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin: 0 auto; /* Center horizontally */
+        }
+
+        #sideMenu ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #sideMenu ul li {
+            margin: 10px 0;
+        }
+
+        #sideMenu ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        #sideMenu ul li a:hover {
+            background-color: #575757;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+            background-color: #fff;
+            overflow-y: auto;
+        }
+
+        .dashboard {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .dashboard-box {
+            padding: 20px;
+            border-radius: 10px;
+            width: calc(50% - 10px);
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            color: #333;
+        }
+
+        .dashboard-box:hover {
+            transform: translateY(-5px);
+        }
+
+        #uploadMaterialsBox {
+            background-color: #FF5733; /* Red */
+            border: 2px solid #FF5733;
+        }
+
+        #lecturesBox {
+            background-color: #33B5FF; /* Blue */
+            border: 2px solid #33B5FF;
+        }
+
+        #studentsBox {
+            background-color: #33FF57; /* Green */
+            border: 2px solid #33FF57;
+        }
+
+        #registeredUsersBox {
+            background-color: #FFC300; /* Yellow */
+            border: 2px solid #FFC300;
+        }
+
+        .content-box {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 0 auto; /* Center horizontally */
+            width: 80%; /* Adjust width as needed */
+            border: 2px solid;
+        }
+
+        .content-box h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .content-box p {
+            color: #333;
+        }
+
+        .content-box ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            color: #333;
+        }
+
+        .material-box {
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+            position: relative;
+            border: 2px solid #333;
+        }
+
+        .material-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .material-box img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .material-box-content {
+            padding: 15px;
+        }
+
+        .material-box-content h3 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .material-box-content p {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .material-box-content small {
+            color: #999;
+        }
+
+        .chat-box {
+            background-color: #444;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .chat-box:hover {
+            background-color: #555;
+        }
+
+        .chat-container {
+            display: none;
+            flex-direction: column;
+            border: 2px solid #444;
+            border-radius: 10px;
+            background-color: white;
+            padding: 15px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-header {
+            background-color: #444;
+            color: white;
+            padding: 10px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+        }
+
+        .chat-input {
+            display: flex;
+            border-top: 1px solid #ddd;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 0 0 0 10px;
+        }
+
+        .chat-input button {
+            padding: 10px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 0 0 10px 0;
+            cursor: pointer;
+        }
+
+        .chat-input button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Language Learning Platform Dashboard</h1>
+        <nav>
+            <a href="#" id="logoutLink">Logout</a>
+        </nav>
+    </header>
+    <div class="container">
+        <aside id="sideMenu">
+            <ul>
+                <li><a href="browse.html" id="browseCoursesLink">Browse Courses</a></li>
+                <li><a href="#" id="createCourseLink">Create Course</a></li>
+                <li><a href="enroll.html" id="enrolledCoursesLink">Enrolled Courses</a></li>
+                <li><a href="progress.html" id="trackProgressLink">Track Progress</a></li>
+                        
+                <li><a href="excersise.html" id="exercisesLink">Exercises</a></li>
+            </ul>
+            <div class="chat-box" id="chatBox">Student Chat</div>
+        </aside>
+        <main id="content">
+            <div class="dashboard">
+                <div class="dashboard-box" id="uploadMaterialsBox">
+                    <h2>Upload Materials</h2>
+                    <p>Manage and upload course materials.</p>
+                </div>
+                <div class="dashboard-box" id="lecturesBox">
+                    <h2>Lectures</h2>
+                    <p>Manage and schedule lectures.</p>
+                </div>
+                <div class="dashboard-box" id="studentsBox">
+                    <h2>Students</h2>
+                    <p>View and manage student information.</p>
+                </div>
+                <div class="dashboard-box" id="registeredUsersBox">
+                    <h2>Registered Users</h2>
+                    <p>Manage user accounts and roles.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div class="chat-container" id="chatContainer">
+        <div class="chat-header">Student Chat</div>
+        <div class="chat-messages" id="chatMessages"></div>
+        <div class="chat-input">
+            <input type="text" id="chatInput" placeholder="Type a message...">
+            <button id="chatSendButton">Send</button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const boxes = document.querySelectorAll('.dashboard-box');
+            const chatBox = document.getElementById('chatBox');
+            const chatContainer = document.getElementById('chatContainer');
+            const chatSendButton = document.getElementById('chatSendButton');
+            const chatInput = document.getElementById('chatInput');
+            const chatMessages = document.getElementById('chatMessages');
+
+            boxes.forEach(box => {
+                box.addEventListener('click', () => {
+                    const section = box.id.replace('Box', '');
+                    loadContent(section);
+                });
+            });
+
+            chatBox.addEventListener('click', () => {
+                chatContainer.style.display = chatContainer.style.display === 'flex' ? 'none' : 'flex';
+            });
+
+            chatSendButton.addEventListener('click', () => {
+                const message = chatInput.value;
+                if (message.trim() !== '') {
+                    const messageElement = document.createElement('div');
+                    messageElement.textContent = message;
+                    chatMessages.appendChild(messageElement);
+                    chatInput.value = '';
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }
+            });
+
+            chatInput.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                    chatSendButton.click();
+                }
+            });
+
+            function loadContent(section) {
+                const content = {
+                    uploadMaterials: `
+                        <div class="content-box" style="border-color: #FF5733;">
+                            <h2>Upload Materials</h2>
+                            <p>Students who have uploaded materials:</p>
+                            <div class="material-box">
+                                <img src="C:/Users/TUF/OneDrive/Pictures/427639_fe4acdb93ccc4bfba4173f3b41de0030~mv2.jpg" alt="Material 1" width="400" height="200">
+                                <div class="material-box-content">
+                                    <h3>Introduction to Grammar</h3>
+                                    <p>Description: A comprehensive guide to basic grammar principles.</p>
+                                    <p><small>Uploaded by: John Doe</small></p>
+                                </div>
+                            </div>
+                            <div class="material-box">
+                                <img src="C:/Users/TUF/OneDrive/Pictures/th (4).jpeg" alt="Material 2" width="400" height="200">
+                                <div class="material-box-content">
+                                    <h3>Advanced Vocabulary</h3>
+                                    <p>Description: A detailed look at advanced vocabulary for language learners.</p>
+                                    <p><small>Uploaded by: Jane Smith</small></p>
+                                </div>
+                            </div>
+                            <div class="material-box">
+                                <img src="C:/Users/TUF/OneDrive/Pictures/th (5).jpeg" alt="Material 3" width="400" height="200">
+                                <div class="material-box-content">
+                                    <h3>Listening Comprehension</h3>
+                                    <p>Description: Exercises to improve listening comprehension skills.</p>
+                                    <p><small>Uploaded by: Alex Johnson</small></p>
+                                </div>
+                            </div>
+                            <h3>Database Information:</h3>
+                            <p>Materials are stored in a relational database with metadata such as title, description, author, and upload date. Each material has an associated file path for the stored resource.</p>
+                        </div>
+                    `,
+                    lectures: `
+                        <div class="content-box" style="border-color: #33B5FF;">
+                            <h2>Lectures</h2>
+                            <p>Manage and schedule lectures.</p>
+                            <div class="material-box">
+                                <video width="400" controls>
+                                    <source src="https://www.youtube.com/results?search_query=grammar+video+mp4" type="video/mp4">
+                                    Your browser does not support HTML video.
+                                </video>
+                                <div class="material-box-content">
+                                    <h3>Lecture on Basic Grammar</h3>
+                                    <p>Description: This lecture covers the fundamentals of grammar.</p>
+                                    <p><small>By: Prof. Emily Watson</small></p>
+                                </div>
+                            </div>
+                            <div class="material-box">
+                                <video width="400" controls>
+                                    <source src="https://www.example.com/lecture2.mp4" type="video/mp4">
+                                    Your browser does not support HTML video.
+                                </video>
+                                <div class="material-box-content">
+                                    <h3>Lecture on Advanced Vocabulary</h3>
+                                    <p>Description: In-depth analysis of advanced vocabulary usage.</p>
+                                    <p><small>By: Dr. Michael Brown</small></p>
+                                </div>
+                            </div>
+                            <div class="material-box">
+                                <video width="400" controls>
+                                    <source src="https://www.example.com/lecture3.mp4" type="video/mp4">
+                                    Your browser does not support HTML video.
+                                </video>
+                                <div class="material-box-content">
+                                    <h3>Lecture on Listening Comprehension</h3>
+                                    <p>Description: Techniques to improve listening comprehension skills.</p>
+                                    <p><small>By: Prof. Sarah Johnson</small></p>
+                                </div>
+                            </div>
+                            <h3>Database Information:</h3>
+                            <p>Lecture details are stored in a relational database with links to video recordings and supplementary materials. Metadata includes lecture title, date, instructor, and resource links.</p>
+                        </div>
+                    `,
+                    students: `
+                        <div class="content-box" style="border-color: #33FF57;">
+                            <h2>Students</h2>
+                            <p>View and manage student information.</p>
+                            <ul>
+                                <li>List of enrolled students and their profiles.</li>
+                                <li>Track student progress and performance.</li>
+                                <li>Provide feedback and grades for assignments.</li>
+                                <li>Monitor attendance and participation.</li>
+                                <li>Facilitate communication between students and instructors.</li>
+                            </ul>
+                            <h3>Database Information:</h3>
+                            <p>Student profiles and progress data are stored in a relational database. Each student has a unique profile with personal details, course enrollments, grades, and activity logs.</p>
+                        </div>
+                    `,
+                    registeredUsers: `
+                        <div class="content-box" style="border-color: #FFC300;">
+                            <h2>Registered Users</h2>
+                            <p>Manage user accounts and roles.</p>
+                            <ul>
+                                <li>View and manage all registered users.</li>
+                                <li>Assign roles and permissions (e.g., student, instructor, admin).</li>
+                                <li>Handle user registration and account recovery.</li>
+                                <li>Monitor user activity and engagement.</li>
+                                <li>Ensure compliance with privacy and security policies.</li>
+                            </ul>
+                            <h3>Database Information:</h3>
+                            <p>User accounts are stored in a distributed database architecture with multi-factor authentication and auditing capabilities to ensure data security and compliance.</p>
+                        </div>
+                    `,
+                };
+
+                document.getElementById('content').innerHTML = content[section];
+            }
+
+            // Example data to update counts
+            document.getElementById('uploadMaterialsBox').querySelector('p').textContent = '3 Materials';
+            document.getElementById('lecturesBox').querySelector('p').textContent = '8 Lectures';
+            document.getElementById('studentsBox').querySelector('p').textContent = '15 Students';
+            document.getElementById('registeredUsersBox').querySelector('p').textContent = '20 Users';
+        });
+    </script>
+</body>
+</html>

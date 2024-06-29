@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Courses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .course {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .course img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .course h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .course p {
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .course .details {
+            margin-top: 10px;
+            color: #888;
+        }
+
+        .course .description {
+            color: #444;
+        }
+
+        .course .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            color: #888;
+        }
+
+        .course .stats .interest {
+            flex: 1;
+            text-align: left;
+        }
+
+        .course .stats .duration {
+            flex: 1;
+            text-align: right;
+        }
+
+        .course-list {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .course-list li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-list li h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .course-list li p {
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        #loadCoursesBtn {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #loadCoursesBtn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Browse Courses</h1>
+    </header>
+    <main id="courses">
+        <button id="loadCoursesBtn">Load Courses</button>
+        <ul class="course-list" id="courseList"></ul>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const coursesSection = document.getElementById('courses');
+            const loadCoursesBtn = document.getElementById('loadCoursesBtn');
+            const courseList = document.getElementById('courseList');
+
+            loadCoursesBtn.addEventListener('click', () => {
+                // Simulated course data (replace with actual course data from a server)
+                const courses = [
+                    {
+                        title: 'JavaScript Fundamentals',
+                        description: 'Learn the basics of JavaScript programming language.',
+                        image: 'C:/Users/TUF/OneDrive/Pictures/js-and-frameworks-banner.png',
+                        interest: 120, // Number of students interested
+                        duration: '3 months' // Duration of the course
+                    },
+                    {
+                        title: 'React for Beginners',
+                        description: 'Introduction to building web applications with React.',
+                        image: 'C:/Users/TUF/OneDrive/Pictures/maxresdefault.jpg',
+                        interest: 90,
+                        duration: '2 months'
+                    },
+                    {
+                        title: 'Node.js Mastery',
+                        description: 'Master Node.js and build scalable network applications.',
+                        image: 'C:/Users/TUF/OneDrive/Pictures/th (6).jpeg',
+                        interest: 150,
+                        duration: '4 months'
+                    }
+                ];
+
+                // Clear existing courses
+                courseList.innerHTML = '';
+
+                // Create HTML for each course and append to courseList as list items
+                courses.forEach(course => {
+                    const courseElement = document.createElement('li');
+                    courseElement.classList.add('course');
+                    courseElement.innerHTML = `
+                        <img src="${course.image}" alt="${course.title}">
+                        <h3>${course.title}</h3>
+                        <p class="description">${course.description}</p>
+                        <div class="details">
+                            <div class="stats">
+                                <div class="interest">Students Interested: ${course.interest}</div>
+                                <div class="duration">Duration: ${course.duration}</div>
+                            </div>
+                        </div>
+                    `;
+                    courseList.appendChild(courseElement);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

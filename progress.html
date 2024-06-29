@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Tracking - E-Learn Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            font-family: 'Heebo', sans-serif;
+            color: #333;
+            background-color: #f8f9fa;
+            background-image: url('C:/Users/TUF/OneDrive/Pictures/blue-sky-background-3.png');
+        }
+
+        .navbar {
+            background-color: #007bff;
+            padding: 10px 0;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .navbar-brand {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar-nav {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar-nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+
+        .page-header {
+            background: url('images/enroll-background.jpg') no-repeat center center;
+            background-size: cover;
+            padding: 100px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+
+        .section {
+            padding: 60px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 36px;
+        }
+
+        .progress-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+
+        .student-box {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 45%;
+        }
+
+        .student-box h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .student-bio {
+            margin-bottom: 20px;
+        }
+
+        .student-progress {
+            margin-bottom: 20px;
+        }
+
+        .feedback {
+            margin-bottom: 20px;
+        }
+
+        .pros-cons {
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .back-to-top {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        .back-to-top:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">E-Learn</a>
+            <ul class="navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Track Progress</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header class="page-header">
+        <div class="container">
+            <h1>Track Student Progress</h1>
+        </div>
+    </header>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Progress Tracking</h2>
+            <div class="progress-container">
+                <!-- Student 1 - Bharath -->
+                <div class="student-box">
+                    <h2>Bharath</h2>
+                    <div class="student-bio">
+                        <p><strong>Bio:</strong> Bharath is a diligent learner with a passion for mastering new concepts in technology and design. He actively participates in course discussions and consistently submits high-quality assignments.</p>
+                    </div>
+                    <div class="student-progress">
+                        <h3>Student Progress</h3>
+                        <ul>
+                            <li><strong>Assessments Completed:</strong> 8</li>
+                            <li><strong>Quizzes Taken:</strong> 12</li>
+                            <li><strong>Hours Worked:</strong> 45</li>
+                            <li><strong>Score:</strong> 87%</li>
+                        </ul>
+                    </div>
+                    <div class="feedback">
+                        <h3>Feedback from E-Learn</h3>
+                        <p>Bharath receives positive feedback for his proactive approach to learning and his ability to apply theoretical knowledge to practical projects.</p>
+                    </div>
+                    <div class="pros-cons">
+                        <h3>Pros of Student Progress Tracking</h3>
+                        <ul>
+                            <li>Insightful Analytics: Provides detailed insights into student performance and engagement.</li>
+                            <li>Personalized Learning: Tailors learning experiences based on individual progress and needs.</li>
+                            <li>Enhanced Communication: Facilitates effective communication between instructors and students.</li>
+                        </ul>
+                        <h3>Cons of Student Progress Tracking</h3>
+                        <ul>
+                            <li>Privacy Concerns: Requires careful handling of student data and privacy issues.</li>
+                            <li>Implementation Challenges: Can be complex to implement effectively across various courses and learning styles.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Student 2 - Nani -->
+                <div class="student-box">
+                    <h2>Nani</h2>
+                    <div class="student-bio">
+                        <p><strong>Bio:</strong> Nani is an enthusiastic learner specializing in digital marketing strategies. She excels in creative problem-solving and demonstrates a knack for strategic thinking in campaign management.</p>
+                    </div>
+                    <div class="student-progress">
+                        <h3>Student Progress</h3>
+                        <ul>
+                            <li><strong>Assessments Completed:</strong> 6</li>
+                            <li><strong>Quizzes Taken:</strong> 10</li>
+                            <li><strong>Hours Worked:</strong> 38</li>
+                            <li><strong>Score:</strong> 91%</li>
+                        </ul>
+                    </div>
+                    <div class="feedback">
+                        <h3>Feedback from E-Learn</h3>
+                        <p>Nani receives commendations for her innovative approach to marketing challenges and her ability to adapt strategies based on market trends.</p>
+                    </div>
+                    <div class="pros-cons">
+                        <h3>Pros of Student Progress Tracking</h3>
+                        <ul>
+                            <li>Performance Evaluation: Enables detailed assessment of student performance over time.</li>
+                            <li>Goal Tracking: Helps students and instructors monitor progress towards learning objectives.</li>
+                            <li>Data-Driven Decisions: Facilitates data-driven instructional improvements and curriculum adjustments.</li>
+                        </ul>
+                        <h3>Cons of Student Progress Tracking</h3>
+                        <ul>
+                            <li>Resource Intensive: Requires dedicated resources for data collection, analysis, and reporting.</li>
+                            <li>Student Engagement: May inadvertently create pressure or anxiety about performance metrics.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 E-Learn. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enroll - E-Learn Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            font-family: 'Heebo', sans-serif;
+            color: #333;
+            background-color: #f8f9fa;
+            background-image: url('C:/Users/TUF/OneDrive/Pictures/blue-sky-background-3.png');
+        }
+
+        .navbar {
+            background-color: #007bff;
+            padding: 10px 0;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .navbar-brand {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar-nav {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar-nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+
+        .page-header {
+            background: url('images/enroll-background.jpg') no-repeat center center;
+            background-size: cover;
+            padding: 100px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+
+        .section {
+            padding: 60px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 36px;
+        }
+
+        .enroll-form, .verification-form {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .enroll-form input, .enroll-form select, .verification-form input, .verification-form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        .enroll-form button, .verification-form button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .enroll-form button:hover, .verification-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            margin-top: 40px;
+            background: #d4edda;
+            padding: 20px;
+            border-radius: 8px;
+            color: #155724;
+        }
+
+        .course-benefits {
+            margin-top: 40px;
+            background: #f1f1f1;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .course-benefits ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .back-to-top {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        .back-to-top:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index" class="navbar-brand">E-Learn</a>
+            <ul class="navbar-nav">
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header class="page-header">
+        <div class="container">
+            <h1>Enroll in a Course</h1>
+        </div>
+    </header>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Enroll in a Course</h2>
+            <form id="enroll-form" class="enroll-form">
+                <label for="course-id">Select Course</label>
+                <select id="course-id" required>
+                    <option value="" disabled selected>Select a course</option>
+                    <option value="WD101">Web Design - WD101</option>
+                    <option value="AI102">Artificial Intelligence with Python - AI102</option>
+                    <option value="DM103">Digital Marketing - DM103</option>
+                </select>
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <button type="submit" class="btn-submit">Enroll</button>
+            </form>
+
+            <form id="verification-form" class="verification-form">
+                <h2>Verification</h2>
+                <p>A verification code has been sent to your email. Please enter it below to complete your enrollment.</p>
+                <input type="text" id="verification-code" placeholder="Verification Code" required>
+                <button type="submit" class="btn-submit">Verify</button>
+            </form>
+
+            <div id="success-message" class="success-message">
+                <h2>Enrollment Successful!</h2>
+                <p>Thank you for enrolling in our course. A confirmation email has been sent to you.</p>
+               
+            </div>
+
+            <div class="course-benefits">
+                <h3>Benefits of Our Courses</h3>
+                <ul>
+                    <li>Expert instructors with industry experience</li>
+                    <li>Comprehensive course materials and resources</li>
+                    <li>Interactive lessons and practical assignments</li>
+                    <li>Flexible learning schedule</li>
+                    <li>Access to a supportive learning community</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('enroll-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('A verification code has been sent to your email.');
+            document.getElementById('enroll-form').style.display = 'none';
+            document.getElementById('verification-form').style.display = 'block';
+        });
+
+        document.getElementById('verification-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('verification-form').style.display = 'none';
+            document.getElementById('success-message').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

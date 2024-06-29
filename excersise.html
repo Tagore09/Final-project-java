@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Menu - E-Learn Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            font-family: 'Heebo', sans-serif;
+            color: #333;
+            background-color: #f8f9fa;
+            background-image: url('C:/Users/TUF/OneDrive/Pictures/blue-sky-background-3.png');
+        }
+
+        .navbar {
+            background-color: #007bff;
+            padding: 10px 0;
+            color: rgb(16, 2, 2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .navbar-brand {
+            color: #0f0303;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar-nav {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar-nav a {
+            color: #1c0606;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+
+        .page-header {
+            background: url('images/enroll-background.jpg') no-repeat center center;
+            background-size: cover;
+            padding: 100px 0;
+            color: rgb(25, 10, 10);
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+
+        .section {
+            padding: 60px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 36px;
+        }
+
+        .exercise-list {
+            margin-top: 40px;
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .exercise-box {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .exercise-box h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .exercise-box p {
+            margin-bottom: 20px;
+        }
+
+        .quiz-box {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+
+        .quiz-box h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .quiz-box ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
+
+        .top-performers {
+            margin-top: 40px;
+        }
+
+        .top-performers h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .top-performers ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .top-performers li {
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .back-to-top {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        .back-to-top:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">E-Learn</a>
+            <ul class="navbar-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Track Progress</a></li>
+                <li><a href="#">Exercise Menu</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header class="page-header">
+        <div class="container">
+            <h1>Exercise Menu</h1>
+        </div>
+    </header>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Exercises and Quizzes</h2>
+
+            <!-- Exercise List -->
+            <div class="exercise-list">
+                <!-- Exercise 1 -->
+                <div class="exercise-box">
+                    <h2>Exercise 1: Web Design Basics</h2>
+                    <p>Learn the fundamentals of web design, including HTML, CSS, and responsive design principles.</p>
+                </div>
+
+                <!-- Exercise 2 -->
+                <div class="exercise-box">
+                    <h2>Exercise 2: JavaScript Essentials</h2>
+                    <p>Explore the core concepts of JavaScript programming language, including variables, loops, and functions.</p>
+                </div>
+
+                <!-- Exercise 3 -->
+                <div class="exercise-box">
+                    <h2>Exercise 3: Digital Marketing Strategies</h2>
+                    <p>Develop effective digital marketing strategies, including SEO, PPC, and social media marketing tactics.</p>
+                </div>
+
+                <!-- Exercise 4 -->
+                <div class="exercise-box">
+                    <h2>Exercise 4: Data Analysis Techniques</h2>
+                    <p>Learn essential data analysis techniques, including data visualization and statistical analysis.</p>
+                </div>
+            </div>
+
+            <!-- Quiz Section -->
+            <div class="quiz-box">
+                <h2>Quizzes</h2>
+                <ul>
+                    <li>Quiz 1: Web Design Basics - Score: 90%</li>
+                    <li>Quiz 2: JavaScript Essentials - Score: 88%</li>
+                    <li>Quiz 3: Digital Marketing Strategies - Score: 92%</li>
+                    <li>Quiz 4: Data Analysis Techniques - Score: 85%</li>
+                </ul>
+            </div>
+
+            <!-- Top Performers -->
+            <div class="top-performers">
+                <h2>Top Performers</h2>
+                <ul>
+                    <li>Bharath - Exercise 3: Digital Marketing Strategies (Score: 95%)</li>
+                    <li>Nani - Exercise 2: JavaScript Essentials (Score: 93%)</li>
+                    <li>John - Exercise 1: Web Design Basics (Score: 91%)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 E-Learn. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
